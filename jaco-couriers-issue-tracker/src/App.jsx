@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import IssueListControl from "./ListControl/IssueListControl";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex justify-center min-h-screen bg-gray-50 p-10"> 
+      <div className="space-y-5 text-center border-gray-200 border-2 rounded-lg">
+        
+        {/* Table Headers */}
+        <div className="flex space-x-10 justify-center items-center border-b p-5 bg-gray-100 rounded-t-lg">
+          <p className="text-xs w-28 font-bold">Issue Title</p>
+          <p className="text-xs w-28 font-bold">Status</p>
+          <p className="text-xs w-28 font-bold">Filed Date</p>
+          <p className="text-xs w-28 font-bold">Fixed Date</p>
+          <p className="text-xs w-28 font-bold">Filed By</p>
+          <p className="text-xs w-28 font-bold">Fixed By</p>
+        </div>
+
+        {/* Issue Items */}
+        <div className="space-y-5 p-5">
+          <IssueListControl issue="Test Issue" dateFiled="22/03/2025" dateFixed="23/03/2025" status="Fixed" filedBy={"Joyce"} fixedBy={"Jayden"}/>
+          <IssueListControl issue="Test Issue" dateFiled="23/03/2025" dateFixed="-" status="Filed" filedBy={"Becca"} fixedBy={"-"}/>
+          <IssueListControl issue="Test Issue" dateFiled="24/03/2025" dateFixed="25/03/2025" status="Fixed" filedBy={"Carolyn"} fixedBy={"Jayden"}/>
+          <IssueListControl issue="Test Issue" dateFiled="24/03/2025" dateFixed="-" status="Filed" filedBy={"Becca"} fixedBy={"-"}/>
+        </div>
+        
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
